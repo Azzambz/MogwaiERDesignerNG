@@ -51,6 +51,12 @@
             <Text lang="de">Export</Text>
             <Text lang="en">Export</Text>
         </Entry>
+
+        <Entry id="SCREENSHOT">
+            <Text lang="de">Take Screenshot</Text>
+            <Text lang="en">Take Screenshot</Text>
+        </Entry>
+
         <Entry id="ASSVG">
             <Text lang="de">als SVG</Text>
             <Text lang="en">as SVG</Text>

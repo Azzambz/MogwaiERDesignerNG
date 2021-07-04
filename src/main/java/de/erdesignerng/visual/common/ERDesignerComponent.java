@@ -38,6 +38,7 @@ import de.mogwai.common.client.looks.components.menu.DefaultMenuItem;
 import de.mogwai.common.client.looks.components.menu.DefaultRadioButtonMenuItem;
 import de.mogwai.common.i18n.ResourceHelper;
 import de.mogwai.common.i18n.ResourceHelperProvider;
+import org.bouncycastle.jcajce.provider.drbg.DRBG;
 
 import javax.swing.*;
 import java.awt.*;
@@ -123,6 +124,12 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
     private DefaultCheckBox intelligentLayoutCheckbox;
 
     private DefaultMenu exportMenu;
+
+    /** tambahan code **/
+    private DefaultAction screenShotAction;
+
+    private DefaultMenuItem screenShotMenu;
+    /** ------------- **/
 
     private DefaultAction exportOpenXavaAction;
 
@@ -318,6 +325,8 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
         exportMenu.add(new DefaultMenuItem(exportOpenXavaAction));
         UIInitializer.getInstance().initialize(exportMenu);
 
+
+
         layoutMenu.removeAll();
         aEditor.initLayoutMenu(this, layoutMenu);
         UIInitializer.getInstance().initialize(layoutMenu);
@@ -413,6 +422,10 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
 
         DefaultAction theExportAction = new DefaultAction(this,
                 ERDesignerBundle.EXPORT);
+
+        /** tambahan code **/
+        DefaultAction theScreenShotAction = new DefaultAction(
+                aEvent -> commmandtakeScreenShot(), this, ERDesignerBundle.SCREENSHOOT);
 
         DefaultAction theExitAction = new DefaultAction(
                 e -> worldConnector.exitApplication(), this, ERDesignerBundle.EXITPROGRAM);
@@ -530,6 +543,11 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
 
         exportMenu = new DefaultMenu(theExportAction);
         theFileMenu.add(exportMenu);
+
+        theFileMenu.addSeparator();
+        /** tambahan code **/
+        screenShotMenu = new DefaultMenuItem(theScreenShotAction);
+        theFileMenu.add(screenShotMenu);
 
         theFileMenu.addSeparator();
         theFileMenu.add(lruMenu);
@@ -1174,5 +1192,12 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
                 }
             }
         }
+    }
+
+    /** tambahan code **/
+    protected void commmandtakeScreenShot() {
+        GenericModelEditor aEditor;
+        screenShotMenu.removeAll();
+        aEditor.initScreenShootEntries(screenShotMenu);
     }
 }

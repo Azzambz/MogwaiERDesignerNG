@@ -57,6 +57,9 @@ public interface ERDesignerBundle {
 	/** \u0045\u0078\u0070\u006f\u0072\u0074. */
 	String EXPORT = "EXPORT";
 
+	/** \u0054\u0061\u006b\u0065\u0020\u0053\u0063\u0072\u0065\u0065\u006e\u0073\u0068\u006f\u006f\u0074. */
+	String SCREENSHOOT = "SCREENSHOOT";
+
 	/** \u0061\u0073\u0020\u0053\u0056\u0047. */
 	String ASSVG = "ASSVG";
 

@@ -869,6 +869,17 @@ public class JGraphEditor extends DefaultScrollPane implements GenericModelEdito
 
     }
 
+    /** tambahan code */
+    @Override
+    public void initScreenShootEntries(DefaultMenuItem aScreenShotMenu) {
+        aScreenShotMenu.setEnabled(true);
+        DefaultAction theSsAction = new DefaultAction(
+                ERDesignerBundle.BUNDLE_NAME, ERDesignerBundle.ALLINONEFILE);
+        aScreenShotMenu = new DefaultMenuItem(theSsAction);
+        theSsAction.addActionListener(new ExportGraphicsCommand(this,
+                new ImageExporter("png"), ExportType.ALL_IN_ONE));
+    }
+
     @Override
     public boolean supportsEntityAction() {
         return true;

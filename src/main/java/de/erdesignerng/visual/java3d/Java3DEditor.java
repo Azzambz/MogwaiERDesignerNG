@@ -48,6 +48,7 @@ import de.mogwai.common.client.looks.components.DefaultLabel;
 import de.mogwai.common.client.looks.components.DefaultPanel;
 import de.mogwai.common.client.looks.components.DefaultPopupMenu;
 import de.mogwai.common.client.looks.components.menu.DefaultMenu;
+import de.mogwai.common.client.looks.components.menu.DefaultMenuItem;
 import de.mogwai.common.i18n.ResourceHelper;
 import de.mogwai.common.i18n.ResourceHelperProvider;
 
@@ -1038,4 +1039,7 @@ public class Java3DEditor implements GenericModelEditor {
     public boolean supportsIntelligentLayout() {
         return false;
     }
+
+    @Override
+    public void initScreenShootEntries(DefaultMenuItem aScreenShootMenu) { }
 }

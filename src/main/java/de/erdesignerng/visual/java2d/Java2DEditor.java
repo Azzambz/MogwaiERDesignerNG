@@ -28,6 +28,7 @@ import de.erdesignerng.visual.common.ZoomInfo;
 import de.erdesignerng.visual.jgraph.export.Exporter;
 import de.mogwai.common.client.looks.UIInitializer;
 import de.mogwai.common.client.looks.components.menu.DefaultMenu;
+import de.mogwai.common.client.looks.components.menu.DefaultMenuItem;
 import de.mogwai.common.i18n.ResourceHelper;
 import de.mogwai.common.i18n.ResourceHelperProvider;
 
@@ -401,4 +402,7 @@ public class Java2DEditor implements GenericModelEditor {
     public boolean supportsIntelligentLayout() {
         return false;
     }
+
+    @Override
+    public void initScreenShootEntries(DefaultMenuItem aScreenShootMenu) { }
 }

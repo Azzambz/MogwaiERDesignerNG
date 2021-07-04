@@ -28,6 +28,7 @@ import de.erdesignerng.visual.DisplayLevel;
 import de.erdesignerng.visual.DisplayOrder;
 import de.erdesignerng.visual.jgraph.export.Exporter;
 import de.mogwai.common.client.looks.components.menu.DefaultMenu;
+import de.mogwai.common.client.looks.components.menu.DefaultMenuItem;
 import de.mogwai.common.i18n.ResourceHelperProvider;
 
 import javax.swing.JComponent;
@@ -174,4 +175,7 @@ public interface GenericModelEditor {
     boolean supportShowingAndHidingOfRelations();
 
     void initLayoutMenu(ERDesignerComponent aComponent, DefaultMenu aLayoutMenu);
+
+    /** tambahan code */
+    void initScreenShootEntries(DefaultMenuItem aScreenShootMenu);
 }
