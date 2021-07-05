@@ -125,12 +125,6 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
 
     private DefaultMenu exportMenu;
 
-    /** tambahan code **/
-    private DefaultAction screenShotAction;
-
-    private DefaultMenuItem screenShotMenu;
-    /** ------------- **/
-
     private DefaultAction exportOpenXavaAction;
 
     private DefaultAction displayCommentsAction;
@@ -423,9 +417,6 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
         DefaultAction theExportAction = new DefaultAction(this,
                 ERDesignerBundle.EXPORT);
 
-        /** tambahan code **/
-        DefaultAction theScreenShotAction = new DefaultAction(
-                aEvent -> commmandtakeScreenShot(), this, ERDesignerBundle.SCREENSHOOT);
 
         DefaultAction theExitAction = new DefaultAction(
                 e -> worldConnector.exitApplication(), this, ERDesignerBundle.EXITPROGRAM);
@@ -543,11 +534,6 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
 
         exportMenu = new DefaultMenu(theExportAction);
         theFileMenu.add(exportMenu);
-
-        theFileMenu.addSeparator();
-        /** tambahan code **/
-        screenShotMenu = new DefaultMenuItem(theScreenShotAction);
-        theFileMenu.add(screenShotMenu);
 
         theFileMenu.addSeparator();
         theFileMenu.add(lruMenu);
@@ -1194,10 +1180,4 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
         }
     }
 
-    /** tambahan code **/
-    protected void commmandtakeScreenShot() {
-        GenericModelEditor aEditor;
-        screenShotMenu.removeAll();
-        aEditor.initScreenShootEntries(screenShotMenu);
-    }
 }

@@ -867,6 +867,31 @@ public class JGraphEditor extends DefaultScrollPane implements GenericModelEdito
         aExportMenu.add(theSVGExportMenu);
         addExportEntries(theSVGExportMenu, new SVGExporter());
 
+        /** tambahan code **/
+        DefaultMenu theSingleExportMenu = new DefaultMenu(aProvider,
+                ERDesignerBundle.SCREENSHOT);
+        aExportMenu.add(theSingleExportMenu);
+
+        addScreenshotEntries(theSingleExportMenu, new ImageExporter("png"));
+
+    }
+
+    public void addScreenshotEntries(DefaultMenu aMenu, Exporter aExporter) {
+        DefaultAction theAllInOneAction = new DefaultAction(
+                ERDesignerBundle.BUNDLE_NAME, ERDesignerBundle.ALLINONEFILE);
+        DefaultMenuItem theAllInOneItem = new DefaultMenuItem(theAllInOneAction);
+        theAllInOneAction.addActionListener(new ExportScreenshotCommand(this,
+                aExporter, ExportType.ALL_IN_ONE));
+        aMenu.add(theAllInOneItem);
+
+        DefaultAction theOnePerTableAction = new DefaultAction(
+                ERDesignerBundle.BUNDLE_NAME, ERDesignerBundle.ONEFILEPERTABLE);
+        DefaultMenuItem theOnePerTable = new DefaultMenuItem(
+                theOnePerTableAction);
+        theOnePerTableAction.addActionListener(new ExportScreenshotCommand(this,
+                aExporter, ExportType.ONE_PER_FILE));
+
+        aMenu.add(theOnePerTable);
     }
 
     /** tambahan code */
